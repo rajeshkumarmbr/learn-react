@@ -1,20 +1,21 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import Header from './component/Header'
-import Home from './component/Home'
-import Footer from './component/Footer'
+import React from "react";
+import { Router, Route, Routes } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import Header from "./component/Header";
+import Footer from "./component/Footer";
+
+const history = createBrowserHistory();
 
 function App() {
-
   return (
-    <>
-      <Header/>
-      <Home/>
-      <Footer/>
-    </>
-  )
+    <Router history={history}>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Outlet />} />
+      </Routes>
+      <Footer />
+    </Router>
+  );
 }
 
-export default App
+export default App;

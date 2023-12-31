@@ -31,7 +31,7 @@ function Home() {
 
   return (
     <>
-      <div className="h-[70vh] bg-slate-500 flex justify-center items-center">
+      <div className="h-[70vh] flex-wrap bg-slate-500 flex justify-center items-center">
         {products.map((product) => (
           <Card
             name={product.name}

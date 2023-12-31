@@ -1,10 +1,27 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
-import './index.css'
+import React, { ReactDOM } from "react";
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import { Router, Route, Routes } from "react-router-dom";
+import { createBrowserHistory } from "history";
+import Home from "./component/Home.jsx";
+import Products from "./component/Products.jsx";
+import News from "./component/News.jsx";
+
+const history = createBrowserHistory();
+
+function App() {
+  return (
+    <Routes>
+      <Route path="/" element={<Home />} />
+      <Route path="products" element={<Products />} />
+      <Route path="news" element={<News />} />
+    </Routes>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-)
+    <Router history={history}>
+      <App />
+    </Router>
+  </React.StrictMode>
+);
